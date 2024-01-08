@@ -79,14 +79,7 @@ function Header() {
               </NavLink>
             </li>
             <li>
-              <NavLink
-                to=""
-                style={({ isActive }) => ({
-                  color: isActive ? "#fe8402" : "",
-                })}
-              >
-                How it works
-              </NavLink>
+              <NavLink to="./">How it works</NavLink>
             </li>
             <li className="btn">
               <NavLink
