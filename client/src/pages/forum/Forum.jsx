@@ -96,7 +96,7 @@ function Forum() {
                 <img
                   src={
                     user?.imageBlob
-                      ? `http://localhost:3001/api/all/images/${
+                      ? `https://evangadi-student-forum-backend.vercel.app/api/all/images/${
                           user.imageBlob[user?.userid]
                         }`
                       : ""
