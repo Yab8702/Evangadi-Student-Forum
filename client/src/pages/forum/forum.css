@@ -27,11 +27,13 @@
 }
 
 .forum-header .askq {
+  position: absolute;
   background-color: #516cf0;
-  padding: 10px 20px;
+  padding: 15px 20px;
   text-align: center;
-  border-radius: 5px;
-  font-weight: 400;
+  /* border-radius: 5px; */
+  border: 1px solid #ccc;
+  /* font-weight: 400; */
   font-size: 1rem;
   text-transform: uppercase;
   color: #fff;
@@ -44,32 +46,34 @@
 .forum-header .askq:hover {
   background-color: #fe8402;
 }
-.forum-header .search {
-  width: 70%;
+.search {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid #ccc;
   /* border-radius: 5px; */
   /* padding: 8px; */
 }
-.forum-header .search input {
+.search input {
   width: 100%;
-  border: none;
+  border: 2px solid #ccc;
   outline: none;
   font-size: 1rem;
-  padding: 12px 5px;
+  padding: 15px 5px 15px 160px;
 }
-.forum-header .search input:focus {
+.search input:focus {
   border-left: 4px solid #fe8402;
 }
 .forum-header .user {
-  position: relative;
+  position: fixed;
+  top: 2.5%;
+  right: 10%;
   display: flex;
   /* flex-direction: column; */
   align-items: center;
   cursor: pointer;
   gap: 5px;
+  z-index: 99;
 }
 .forum-header .user-profile {
   display: flex;
@@ -191,14 +195,4 @@
 }
 .question-reply :last-child:hover {
   text-decoration: underline;
-}
-.notifications {
-  position: absolute;
-  top: 100px;
-  right: 40px;
-  width: 100%;
-  text-align: right;
-  /* display: none; */
-  justify-content: center;
-  align-items: center;
 }

@@ -10,6 +10,7 @@ import AskQ from "./pages/askQ/AskQ";
 import { createContext, useEffect, useState } from "react";
 import axios from "axios";
 import Comment from "./components/comment/Comment";
+import AuthRequired from "./components/Authentication/AuthRequired";
 axios.defaults.baseURL = "https://evangadi-student-forum-backend.vercel.app";
 export const AuthContext = createContext();
 function App() {
@@ -50,12 +51,13 @@ function App() {
               <Route path="signin" element={<SignIn />} />
               <Route path="signup" element={<SignUp />} />
             </Route>
+            <Route element={<AuthRequired />}>
+              <Route path="forum" element={<Forum />}>
+                <Route index element={<Comment />} />
+              </Route>
 
-            <Route path="forum" element={<Forum />}>
-              <Route index element={<Comment />} />
+              <Route path="forum/askq" element={<AskQ />} />
             </Route>
-
-            <Route path="forum/askq" element={<AskQ />} />
           </Route>
         </Routes>
       </AnimatePresence>

@@ -34,6 +34,7 @@ function UserMenu({ refresh }) {
                 id="upload-photo"
                 accept="image/*"
                 onChange={handleImageChange}
+                disabled
               />
             </label>
           </li>

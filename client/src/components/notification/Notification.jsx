@@ -7,7 +7,7 @@ function Notification() {
         style={{
           fontSize: "2.4rem",
           cursor: "pointer",
-          marginRight: "6rem",
+          // marginRight: "6rem",
         }}
       />
       {}

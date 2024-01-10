@@ -71,9 +71,6 @@ function Forum() {
   return (
     <section className="forum">
       <div className="forum-main">
-        <div className="notifications">
-          <Notification />
-        </div>
         <div className="forum-header">
           <div className="askq">
             <Link to="askQ">Ask Question</Link>
@@ -85,14 +82,14 @@ function Forum() {
               onChange={handleSearch}
             />
           </div>
-          <div
+          {/* <div
             className="user"
             onMouseEnter={() => setUserMenu(true)}
             onMouseLeave={() => setUserMenu(false)}
-          >
-            <div className="user-profile">
+          > */}
+          {/* <div className="user-profile">
               {/* <UserProfile userid={user?.userid} /> */}
-              {user?.imageBlob && user.imageBlob[user?.userid] ? (
+          {/* {user?.imageBlob && user.imageBlob[user?.userid] ? (
                 <img
                   src={
                     user?.imageBlob
@@ -111,26 +108,25 @@ function Forum() {
                   // color={randomColor}
                 />
               )}
-            </div>
+            </div> 
             <div className="user-name">
               <h3>
                 {user?.username}
                 <RiArrowDropDownLine />
               </h3>
-            </div>
-            {userMenu && (
+            </div> */}
+          {/* {userMenu && (
               <UserMenu
                 refresh={() => {
                   setUserImage(!userImage);
                 }}
               />
-            )}
-          </div>
+            )} */}
+          {/* </div> */}
         </div>
+
         <div className="forum-body">
-          <div className="forum-title">
-            <h1>Questions</h1>
-          </div>
+          <div className="forum-title"></div>
           {data.length > 0 ? (
             data?.map((data) => {
               return (

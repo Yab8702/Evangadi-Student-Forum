@@ -52,6 +52,9 @@ button {
   .forum .forum-main {
     width: 100%;
   }
+  .logo img {
+    max-width: 80%;
+  }
 }
 @media (max-width: 650px) {
   .sign-form {

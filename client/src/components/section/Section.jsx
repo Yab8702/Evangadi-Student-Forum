@@ -18,7 +18,7 @@ function Section() {
               follow in your footsteps.
             </p>
             <br />
-            <br />
+            {/* <br /> */}
             <p>
               Wheather you are willing to share your knowledge or you are just
               looking to meet mentors of your own, please start by joining the
