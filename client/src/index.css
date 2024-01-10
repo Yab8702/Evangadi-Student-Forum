@@ -17,6 +17,7 @@ section {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  padding-top: 50px;
 }
 button {
   border: none;
@@ -52,8 +53,13 @@ button {
   .forum .forum-main {
     width: 100%;
   }
-  .logo img {
-    max-width: 80%;
+}
+@media (max-width: 820px) {
+  .submenu {
+    display: none;
+  }
+  .menu {
+    display: block;
   }
 }
 @media (max-width: 650px) {
@@ -87,12 +93,7 @@ button {
     align-items: center;
     justify-content: center;
   }
-  .submenu {
-    display: none;
-  }
-  .menu {
-    display: block;
-  }
+
   .notifications {
     text-align: left;
     left: 10px;
