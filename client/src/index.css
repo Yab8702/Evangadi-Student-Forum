@@ -18,6 +18,7 @@ section {
   background-size: cover;
   background-position: center;
   padding: 50px 0;
+  overflow-y: scroll;
 }
 button {
   border: none;
