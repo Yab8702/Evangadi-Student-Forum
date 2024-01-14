@@ -45,6 +45,7 @@
 }
 .forum-header .askq:hover {
   background-color: #fe8402;
+  border: 2px solid #fe8402;
 }
 .search {
   width: 100%;
