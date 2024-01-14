@@ -130,7 +130,7 @@ function Forum() {
           {data.length > 0 ? (
             data?.map((data) => {
               return (
-                <div key={data.questionid}>
+                <div key={data.questionid} style={{ width: "100%" }}>
                   {data.title.toLowerCase().includes(search) && (
                     <div className="question">
                       <div className="question-header">
