@@ -65,6 +65,12 @@ function Header() {
                   style={({ isActive }) => ({
                     color: isActive ? "#f68402" : "",
                   })}
+                  onClick={() => {
+                    if (token) {
+                      localStorage.removeItem("token");
+                      setToken(null);
+                    }
+                  }}
                 >
                   {token ? "Sign Out" : "Sign In"}
                 </NavLink>
