@@ -9,7 +9,12 @@ import likeRouter from "./routes/like.routes.js";
 dotenv.config();
 const app = express();
 app.use(express.json());
-app.use(cors());
+const corsOptions = {
+  origin: process.env.FRONTEND_URL,
+  credentials: true,
+  optionSuccessStatus: 200,
+};
+app.use(cors(corsOptions));
 app.use("/api/users", userRouter);
 app.use("/api/questions", questionRouter);
 app.use("/api/answers", answerRouter);

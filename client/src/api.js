@@ -116,7 +116,7 @@ export async function getAllUserImages(token) {
 export async function createQuestionLike(token, questionid) {
   try {
     const res = await axios.post(
-      `/api/likes//${questionid}`,
+      `/api/likes/${questionid}`,
       {},
       {
         headers: {
