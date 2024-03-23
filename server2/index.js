@@ -13,7 +13,7 @@ const corsOptions = {
   origin: process.env.FRONTEND_URL,
   optionSuccessStatus: 200,
 };
-app.use(cors(corsOptions));
+app.use(cors());
 app.use("/api/users", userRouter);
 app.use("/api/questions", questionRouter);
 app.use("/api/answers", answerRouter);
