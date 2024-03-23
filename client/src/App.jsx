@@ -11,7 +11,7 @@ import { createContext, useEffect, useState } from "react";
 import axios from "axios";
 import Comment from "./components/comment/Comment";
 import AuthRequired from "./components/Authentication/AuthRequired";
-axios.defaults.baseURL = "https://evangadi-student-forum-backend.vercel.app";
+axios.defaults.baseURL = "http://localhost:3000";
 export const AuthContext = createContext();
 function App() {
   const [user, setUser] = useState({});

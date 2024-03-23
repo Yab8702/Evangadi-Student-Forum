@@ -9,24 +9,27 @@ function SignIn() {
   const [click, setClick] = useState(false);
   const [show, setShow] = useState(false);
   const [loginFormData, setLoginFormData] = useState({
-    email: "",
+    username: "",
     password: "",
   });
-
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const location = useLocation();
   const navigate = useNavigate();
   const from = location.state?.from || "/forum";
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     await loginUser(loginFormData)
       .then((data) => {
         setError(null);
+        setLoading(false);
         localStorage.setItem("token", data.token);
         navigate(from, { replace: true });
       })
       .catch((err) => {
         setError(err);
+        setLoading(false);
       });
   };
   const handleChange = (e) => {
@@ -59,10 +62,10 @@ function SignIn() {
           <div>
             <form onSubmit={handleSubmit}>
               <input
-                name="email"
-                type="email"
-                placeholder="Email address"
-                value={loginFormData.email}
+                name="username"
+                type="text"
+                placeholder="UserName"
+                value={loginFormData.username}
                 onChange={handleChange}
                 required
               />
@@ -110,7 +113,7 @@ function SignIn() {
               <div className="forgot">
                 <a href="#">Forgot Password</a>
               </div>
-              <button>Login</button>
+              <button>{loading ? "Login..." : "Login"}</button>
             </form>
           </div>
         </m.div>

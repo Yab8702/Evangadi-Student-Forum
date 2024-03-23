@@ -58,15 +58,18 @@ function Comment({}) {
       </form>
       {answers.length > 0 &&
         answers?.map((data) => (
-          <div className="question">
+          <div className="question" key={data._id}>
             <div className="question-header">
               <div className="question-user">
                 <div className="user-profile">
-                  <UserProfile username={data.username} userid={data.userid} />
+                  <UserProfile
+                    username={data.userid.username}
+                    userid={data.userid._id}
+                  />
                 </div>
                 <div className="user-name">
                   <h3>
-                    by <span>{data.username}</span>
+                    by <span>{data.userid.username}</span>
                   </h3>
                 </div>
                 <div className="created-at">

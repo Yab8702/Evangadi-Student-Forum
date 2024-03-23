@@ -1,4 +1,4 @@
-import { Link, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { AiFillLike } from "react-icons/ai";
 import { useContext } from "react";
@@ -6,10 +6,7 @@ import { AuthContext } from "../../App";
 import "./forum.css";
 import { getQuestions, createQuestionLike, getAllUserImages } from "../../api";
 import UserProfile from "../../components/userProfile/UserProfile";
-import Notification from "../../components/notification/Notification";
-import { RiArrowDropDownLine } from "react-icons/ri";
-import UserMenu from "../../components/usermenu/UserMenu";
-import Avatar from "react-avatar";
+import { BsThreeDots } from "react-icons/bs";
 function Forum() {
   const [data, setData] = useState([]);
   const [search, setSearch] = useState("");
@@ -130,7 +127,7 @@ function Forum() {
           {data.length > 0 ? (
             data?.map((data) => {
               return (
-                <div key={data.questionid} style={{ width: "100%" }}>
+                <div key={data._id} style={{ width: "100%" }}>
                   {data.title.toLowerCase().includes(search) && (
                     <div className="question">
                       <div className="question-header">
@@ -140,13 +137,13 @@ function Forum() {
                         <div className="question-user">
                           <div className="user-profile">
                             <UserProfile
-                              username={data.username}
-                              userid={data.userid}
+                              username={data.userid.username}
+                              userid={data.userid._id}
                             />
                           </div>
                           <div className="user-name">
                             <h3>
-                              by <span> {data.username}</span>
+                              by <span> {data.userid.username}</span>
                             </h3>
                           </div>
                           <div className="created-at">
@@ -161,7 +158,7 @@ function Forum() {
                         <p>{data.description}</p>
                       </div>
                       <div className="question-reply">
-                        <button onClick={() => handleLike(data.questionid)}>
+                        <button onClick={() => handleLike(data._id)}>
                           <AiFillLike />
                           {data.like_count > 0 && (
                             <span style={{ margin: "0px 5px" }}>
@@ -169,7 +166,7 @@ function Forum() {
                             </span>
                           )}
                         </button>
-                        <button onClick={() => handleComment(data.questionid)}>
+                        <button onClick={() => handleComment(data._id)}>
                           {data.comment_count > 0 && (
                             <span style={{ margin: "0px 5px" }}>
                               {data.comment_count}{" "}
@@ -178,10 +175,10 @@ function Forum() {
                           comment
                         </button>
                       </div>{" "}
-                      {comment === data.questionid && commentToggle && (
+                      {comment === data._id && commentToggle && (
                         <Outlet
                           context={{
-                            questionid: data.questionid,
+                            questionid: data._id,
                             options: options,
                             addCommentCount: (commentCount) => {
                               setCommentCount((prev) => ({
@@ -192,6 +189,11 @@ function Forum() {
                           }}
                         />
                       )}
+                      <div className="question-menu">
+                        <NavLink to=".">
+                          <BsThreeDots />
+                        </NavLink>
+                      </div>
                     </div>
                   )}
                 </div>

@@ -18,17 +18,21 @@ function SignUp() {
   });
   const { email, password, firstname, lastname, username } = register;
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     await registerUser(register)
       .then((data) => {
         setError(null);
+        setLoading(false);
         navigate("/signin");
       })
       .catch((err) => {
         setError(err);
+        setLoading(false);
       });
   };
   const handleChange = (e) => {
@@ -146,7 +150,7 @@ function SignUp() {
                   </span>
                 </p>
               </div>
-              <button>Agree and Join</button>
+              <button>{loading ? "Registering..." : "Agree & Join"}</button>
               <div className="account">
                 <Link to="/signin">Already have an account? </Link>
               </div>

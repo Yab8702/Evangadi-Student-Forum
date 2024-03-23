@@ -1,6 +1,6 @@
 import axios from "axios";
 //base url
-axios.defaults.baseURL = "https://evangadi-student-forum-backend.vercel.app";
+axios.defaults.baseURL = "http://localhost:3000";
 
 export async function loginUser(creds) {
   try {
@@ -116,7 +116,7 @@ export async function getAllUserImages(token) {
 export async function createQuestionLike(token, questionid) {
   try {
     const res = await axios.post(
-      `/api/likes/questions/${questionid}/like`,
+      `/api/likes//${questionid}`,
       {},
       {
         headers: {
