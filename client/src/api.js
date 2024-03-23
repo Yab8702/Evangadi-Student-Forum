@@ -1,6 +1,6 @@
 import axios from "axios";
 //base url
-axios.defaults.baseURL = "http://localhost:3000";
+axios.defaults.baseURL = "https://evangadi-student-forum-v3u4.vercel.app";
 
 export async function loginUser(creds) {
   try {
