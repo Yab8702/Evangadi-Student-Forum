@@ -9,8 +9,8 @@ function SignIn() {
   const [click, setClick] = useState(false);
   const [show, setShow] = useState(false);
   const [loginFormData, setLoginFormData] = useState({
-    username: "",
-    password: "",
+    username: "test_demo_user",
+    password: "test_demo_user",
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
